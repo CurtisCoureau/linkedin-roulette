@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editeur de posts</title>
+    <link rel="stylesheet" href="editor.css">
+    <link rel="stylesheet" href="../common/common.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/fusee.ico">
+
+</head>
+<body>
+    <header></header>
+
+    <h1>Editeur de posts</h1>
+    <h2>Mettez en forme votre post ici !</h2>
+
+    <body>
+        
+        <div id="editor-container">
+            <textarea id="text-input" placeholder="Écrivez votre post Linkedin ici..." oninput="updateCounters()"></textarea>
+            <div id="see-more-line" style="display: none;"></div> <!-- Ligne du "Voir plus" -->
+            <div id="controls">
+                <button onclick="applyBold()">Gras</button>
+                <button onclick="applyItalic()">Italique</button>
+                <button onclick="copyToClipboard()">Copier</button>
+                <button onclick="increaseFontSize()">Zoom +</button>
+                <button onclick="decreaseFontSize()">Zoom -</button>
+            </div>
+            <div id="counters">
+                <p>Caractères: <span id="char-count">0</span>/3000</p>
+                <p>Mots: <span id="word-count">0</span></p>
+                <p>Emojis: <span id="emoji-count">0</span></p>
+                <p>Mentions @: <span id="mention-count">0</span></p>
+                <p>Hashtags #: <span id="hashtag-count">0</span></p>
+            </div>
+        </div>
+        
+
+    <script src="editor.js"></script>
+    <footer></footer>
+
+    <script src="../common/common.js"></script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+/* Styles généraux pour tous les écrans */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -12,7 +13,7 @@ body {
 }
 
 .roulette {
-    width: 45%; /* Ajustement pour mettre deux roulettes par ligne */
+    width: 45%;
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     background-color: white;
@@ -20,7 +21,7 @@ body {
 }
 
 button {
-    background-color: #0077b5; /* Couleur LinkedIn */
+    background-color: #0077b5;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -34,18 +35,18 @@ button:hover {
 }
 
 #ideaOutput, #hookOutput, #frameworkOutput, #randomAdviceOutput {
-    overflow: auto; /* Permet le défilement si le contenu dépasse max-height */
-    min-height: 60px; /* Hauteur minimale de la boîte */
-    max-height: 150px; /* Hauteur maximale avant de commencer à défiler */
+    overflow: auto;
+    min-height: 60px;
+    max-height: 150px;
     height: auto;
-    width: 400px; /* Adapté à votre contenu */
+    width: 400px;
     margin: auto;
 }
 
 .scrollingText {
     display: flex;
     flex-direction: column;
-    animation: scroll 0.3s linear infinite; /* Accélération de l'animation */
+    animation: scroll 0.3s linear infinite;
 }
 
 @keyframes scroll {
@@ -55,7 +56,7 @@ button:hover {
 
 @keyframes scrollSlow {
     0% { transform: translateY(-100%); }
-    100% { transform: translateY(-200%); /* Assurez-vous que la quantité de défilement soit suffisante pour que ce soit fluide */ }
+    100% { transform: translateY(-200%); }
 }
 
 .control {
@@ -70,4 +71,20 @@ button:hover {
 .control input {
     transform: scale(1.5);
     cursor: pointer;
+}
+
+/* Media Queries pour appareils mobiles uniquement */
+@media only screen and (max-width: 600px) {
+    .roulette {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    #ideaOutput, #hookOutput, #frameworkOutput, #randomAdviceOutput {
+        width: 100%;
+    }
 }

@@ -97,3 +97,26 @@ button:hover {
         width: calc(100% - 40px); /* Pour les très petits écrans, réduisez un peu la largeur pour l'esthétique */
     }
 }
+
+footer {
+    padding: 20px;
+    background-color: #f4f4f4; /* Légèrement différent ou identique au corps pour la cohérence */
+    color: #333;
+    text-align: center;
+    border-top: 1px solid #ccc; /* Ajoute une ligne pour séparer le footer du contenu du corps */
+    margin-top: 40px; /* Espace au-dessus du footer */
+}
+
+footer p {
+    margin: 0;
+    font-size: 16px;
+}
+
+footer a {
+    color: #0077b5; /* Couleur LinkedIn pour le lien */
+    text-decoration: none; /* Supprime le soulignement par défaut */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Ajoute un soulignement au survol pour une meilleure interaction */
+}

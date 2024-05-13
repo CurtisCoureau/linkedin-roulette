@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.roulette-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.roulette {
+    width: 45%; /* Ajustement pour mettre deux roulettes par ligne */
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: white;
+    border-radius: 8px;
+}
+
+button {
+    background-color: #0077b5; /* Couleur LinkedIn */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005691;
+}
+
+#ideaOutput, #hookOutput, #frameworkOutput, #randomAdviceOutput {
+    overflow: auto; /* Permet le défilement si le contenu dépasse max-height */
+    min-height: 60px; /* Hauteur minimale de la boîte */
+    max-height: 150px; /* Hauteur maximale avant de commencer à défiler */
+    height: auto;
+    width: 400px; /* Adapté à votre contenu */
+    margin: auto;
+}
+
+.scrollingText {
+    display: flex;
+    flex-direction: column;
+    animation: scroll 0.3s linear infinite; /* Accélération de l'animation */
+}
+
+@keyframes scroll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
+}
+
+@keyframes scrollSlow {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(-200%); /* Assurez-vous que la quantité de défilement soit suffisante pour que ce soit fluide */ }
+}
+
+.control {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.control label {
+    margin-right: 10px;
+}
+
+.control input {
+    transform: scale(1.5);
+    cursor: pointer;
+}

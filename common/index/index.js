@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Charger le contenu du header et du footer avant de configurer le menu burger
     Promise.all([
-        fetch('../common/index/header.html').then(response => {
+        fetch('common/index/header.html').then(response => {
             if (!response.ok) throw new Error('Failed to load header');
             return response.text();
         }),
-        fetch('../common/index/footer.html').then(response => {
+        fetch('common/index/footer.html').then(response => {
             if (!response.ok) throw new Error('Failed to load footer');
             return response.text();
         })

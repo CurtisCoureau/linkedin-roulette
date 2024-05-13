@@ -16,17 +16,23 @@
     <h2>Mettez en forme votre post ici !</h2>
 
     <body>
+
         
         <div id="editor-container">
-            <textarea id="text-input" placeholder="Écrivez votre post Linkedin ici..." oninput="updateCounters()"></textarea>
+            <div id="text-editor" contenteditable="true" placeholder="Écrivez votre post Linkedin ici..." oninput="updateCounters()"></div>
             <div id="see-more-line" style="display: none;"></div> <!-- Ligne du "Voir plus" -->
-            <div id="controls">
-                <button onclick="applyBold()">Gras</button>
-                <button onclick="applyItalic()">Italique</button>
-                <button onclick="copyToClipboard()">Copier</button>
-                <button onclick="increaseFontSize()">Zoom +</button>
-                <button onclick="decreaseFontSize()">Zoom -</button>
+            <div id="button-container">
+                <div id="format-buttons">
+                    <button onclick="applyBold()">Gras</button>
+                    <button onclick="applyItalic()">Italique</button>
+                </div>
+                <button onclick="copyToClipboard()" id="copy-button">Copier le post</button>
             </div>
+            <div id="zoom-buttons">
+                <button onclick="decreaseFontSize()">Zoom -</button>
+                <button onclick="increaseFontSize()">Zoom +</button>
+            </div>
+            
             <div id="counters">
                 <p>Caractères: <span id="char-count">0</span>/3000</p>
                 <p>Mots: <span id="word-count">0</span></p>

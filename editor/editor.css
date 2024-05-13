@@ -6,39 +6,46 @@ body {
 }
 
 #editor-container {
-    margin: auto;
+    position: relative; /* Important pour le positionnement absolu des enfants */
+    margin: 20px auto;
     width: 80%;
     background: white;
-    padding: 20px;
+    padding: 20px; /* Ajustez ceci si les boutons chevauchent le contenu */
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 8px;
-    position: relative; /* Nécessaire pour positionner correctement la ligne du "Voir plus" */
+    overflow: hidden;
 }
 
-#text-input {
-    width: 100%; /* Utilisez 100% pour occuper toute la largeur du conteneur */
-    height: 200px;
-    padding: 10px; /* Padding intérieur */
-    box-sizing: border-box; /* Inclut padding et border dans la largeur totale */
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 18px;
-    overflow: auto; /* Au cas où le texte dépasse */
+#zoom-buttons {
+    position: absolute;
+    top: 10px; /* Réduisez la distance du haut si nécessaire */
+    right: 30px; /* Réduisez la distance du bord droit pour ajuster la position */
 }
 
-#see-more-line {
-    position: absolute; /* Positionnement absolu par rapport à editor-container */
-    left: 0;
-    right: 0;
+#button-container {
+    display: flex;
+    justify-content: space-between; /* Place les éléments enfants aux extrémités du conteneur */
+    align-items: center; /* Alignement vertical des boutons au centre */
 }
 
+#copy-button {
+    margin-right: 10px;
+    /* Styles supplémentaires pour le bouton Copier si nécessaire */
+}
+
+#format-buttons {
+    text-align: left; /* Aligner les boutons à gauche */
+    padding-bottom: 10px; /* Espacement sous les boutons si nécessaire */
+    margin-left : 12px; /* Réduisez la distance du bord gauche pour ajuster la position */
+    margin-top: 8px;
+}
 
 button {
     background-color: #0077b5;
     color: white;
     border: none;
-    padding: 10px 20px;
-    margin: 10px 5px;
+    padding: 5px 10px; /* Réduire le padding pour des boutons plus fins */
+    margin: 0; /* Aucun espace supplémentaire entre les boutons */
     border-radius: 5px;
     cursor: pointer;
 }
@@ -46,6 +53,51 @@ button {
 button:hover {
     background-color: #005691;
 }
+
+
+#text-input {
+    width: calc(100% - 20px);    height: 200px;
+    padding: 10px; /* Padding intérieur */
+    box-sizing: border-box; /* Inclut padding et border dans la largeur totale */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+    overflow: auto; /* Au cas où le texte dépasse */
+    overflow-y: auto;
+    line-height: 20px;
+    height: 200px;
+    margin-top: 20px;
+}
+
+#text-editor {
+    width: calc(100% - 20px); /* Ajuster en fonction du padding */
+    height: 200px; /* Hauteur initiale */
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow-y: auto; /* Permettre le défilement vertical si nécessaire */
+    background-color: #fff;
+    line-height: 1;
+    font-size: 18px;
+    text-align: left; /* Aligner le texte à gauche */
+    resize: both; /* Permettre le redimensionnement horizontal et vertical */
+    overflow: auto; /* Ajoute une barre de défilement si le contenu dépasse la taille de l'élément */
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+
+#see-more-line {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    top: 30px;
+    border-top: 1px dashed red;
+    pointer-events: none;
+    z-index: 10;
+}
+
 
 .text-danger {
     color: red;

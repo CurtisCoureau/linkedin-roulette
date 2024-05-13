@@ -34,16 +34,24 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function applyBold() {
-    const textarea = document.getElementById('text-input');
-    wrapText(textarea, '*', '*');
-    saveHistory(textarea.value); // Sauvegarder après la mise en forme
+    document.execCommand('bold', false, null);
 }
 
 function applyItalic() {
-    const textarea = document.getElementById('text-input');
-    wrapText(textarea, '_', '_');
-    saveHistory(textarea.value); // Sauvegarder après la mise en forme
+    document.execCommand('italic', false, null);
 }
+
+function copyToClipboard() {
+    const textEditor = document.getElementById('text-editor');
+    const range = document.createRange();
+    range.selectNodeContents(textEditor);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    document.execCommand('copy');
+    alert('Texte copié avec succès!');
+}
+
 
 function wrapText(textarea, prefix, suffix) {
     const start = textarea.selectionStart;
@@ -59,33 +67,13 @@ function wrapText(textarea, prefix, suffix) {
     textarea.focus();
 }
 
-function copyToClipboard() {
-    const textarea = document.getElementById('text-input');
-    textarea.select(); // Sélectionner le texte à copier
-    document.execCommand('copy'); // Copier le texte sélectionné
-
-    // Alternative moderne avec Clipboard API
-    // navigator.clipboard.writeText(textarea.value)
-    //     .then(() => alert('Texte copié avec succès!'))
-    //     .catch(err => console.error('Erreur lors de la copie :', err));
-
-    alert('Texte copié avec succès!'); // Optionnel: Afficher une confirmation
-}
-
 function updateCounters() {
-    const textarea = document.getElementById('text-input');
-    const text = textarea.value;
+    const textarea = document.getElementById('text-editor'); // Assurez-vous que cet ID correspond à votre élément contenteditable.
+    const text = textarea.innerText; // Utilisez innerText pour obtenir le contenu textuel.
 
     const charCount = text.length;
     const charCountElement = document.getElementById('char-count');
     charCountElement.textContent = charCount;
-
-    // Mettre à jour le style en fonction de la limite de caractères
-    if (charCount > 3000) {
-        charCountElement.parentNode.classList.add('text-danger');
-    } else {
-        charCountElement.parentNode.classList.remove('text-danger');
-    }
 
     const wordCount = text.match(/\b\w+\b/g) ? text.match(/\b\w+\b/g).length : 0;
     document.getElementById('word-count').textContent = wordCount;
@@ -100,33 +88,53 @@ function updateCounters() {
     document.getElementById('hashtag-count').textContent = hashtagCount;
 }
 
+// Assurez-vous que cette fonction est appelée à chaque fois que le contenu change.
+document.getElementById('text-editor').addEventListener('input', updateCounters);
 
-let currentFontSize = 18; // Taille initiale de la police en pixels
+
+let currentFontSize = 18; // Assurez-vous que cette valeur initiale est cohérente avec ce que vous avez défini dans le CSS.
 
 function increaseFontSize() {
-    const textarea = document.getElementById('text-input');
-    currentFontSize += 2; // Augmenter la taille de la police de 2px
-    textarea.style.fontSize = `${currentFontSize}px`;
+    const textEditor = document.getElementById('text-editor'); // Assurez-vous que cet ID correspond à votre élément contenteditable.
+    if (currentFontSize < 32) { // Vous pouvez ajuster la limite supérieure selon vos besoins.
+        currentFontSize += 2;
+        textEditor.style.fontSize = `${currentFontSize}px`;
+    }
 }
 
 function decreaseFontSize() {
-    const textarea = document.getElementById('text-input');
-    if (currentFontSize > 10) { // Empêcher la police de devenir trop petite
-        currentFontSize -= 2; // Diminuer la taille de la police de 2px
-        textarea.style.fontSize = `${currentFontSize}px`;
+    const textEditor = document.getElementById('text-editor'); // Assurez-vous que cet ID correspond à votre élément contenteditable.
+    if (currentFontSize > 10) { // Vous pouvez ajuster la limite inférieure selon vos besoins.
+        currentFontSize -= 2;
+        textEditor.style.fontSize = `${currentFontSize}px`;
     }
 }
 
 function updateSeeMoreIndicator() {
-    const textarea = document.getElementById('text-input');
-    const lineHeight = parseInt(window.getComputedStyle(textarea).lineHeight, 10);
+    const textarea = document.getElementById('text-editor'); // Assurez-vous que cet ID est correct
     const seeMoreLine = document.getElementById('see-more-line');
+    const lineHeight = parseFloat(window.getComputedStyle(textarea).lineHeight,); // Utilisation de parseFloat
 
-    // Positionner après la troisième ligne
-    seeMoreLine.style.top = `${3 * lineHeight}px`;
-    seeMoreLine.style.width = `${textarea.offsetWidth}px`;
-    seeMoreLine.style.display = 'block'; // Afficher la ligne
-    seeMoreLine.style.position = 'absolute';
-    seeMoreLine.style.borderTop = '1px solid red'; // Style de la ligne
-    seeMoreLine.style.pointerEvents = 'none'; // Pour ne pas interférer avec le texte
+    // Calculer la position de la ligne pour qu'elle apparaisse après la troisième ligne de texte
+    const linePosition = (3 * lineHeight) + textarea.offsetTop - textarea.scrollTop + 12; // Ajustez selon le padding interne si nécessaire.
+
+    if (linePosition + textarea.offsetTop < textarea.scrollHeight) {
+        seeMoreLine.style.top = `${linePosition}px`;
+        seeMoreLine.style.display = 'block';
+    } else {
+        seeMoreLine.style.display = 'none'; // Cachez la ligne si elle est hors de la zone visible
+    }
 }
+
+
+// S'assurer que l'événement est correctement attaché
+document.getElementById('text-editor').addEventListener('input', updateSeeMoreIndicator);
+document.getElementById('text-editor').addEventListener('scroll', updateSeeMoreIndicator);
+
+// Initialiser l'indicateur une fois au chargement
+document.addEventListener('DOMContentLoaded', function() {
+    updateSeeMoreIndicator();
+});
+
+
+

@@ -1,4 +1,3 @@
-/* Styles généraux pour tous les écrans */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -13,7 +12,9 @@ body {
 }
 
 .roulette {
-    width: 45%;
+    width: calc(50% - 20px); /* 50% moins les marges pour deux roulettes par ligne */
+    margin-bottom: 20px;
+    margin-right: 20px; /* Ajoute une marge entre les éléments de roulette */
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     background-color: white;
@@ -21,13 +22,14 @@ body {
 }
 
 button {
-    background-color: #0077b5;
+    background-color: #0077b5; /* Couleur LinkedIn */
     color: white;
     border: none;
     padding: 10px 20px;
     margin: 10px;
     border-radius: 5px;
     cursor: pointer;
+    width: calc(100% - 20px); /* Prend toute la largeur avec des marges */
 }
 
 button:hover {
@@ -39,14 +41,14 @@ button:hover {
     min-height: 60px;
     max-height: 150px;
     height: auto;
-    width: 400px;
+    width: calc(100% - 40px); /* Prend toute la largeur avec des marges */
     margin: auto;
 }
 
 .scrollingText {
     display: flex;
     flex-direction: column;
-    animation: scroll 0.3s linear infinite;
+    animation: scroll 0.3s linear infinite; /* Accélération de l'animation */
 }
 
 @keyframes scroll {
@@ -56,7 +58,7 @@ button:hover {
 
 @keyframes scrollSlow {
     0% { transform: translateY(-100%); }
-    100% { transform: translateY(-200%); }
+    100% { transform: translateY(-200%); /* Assurez-vous que la quantité de défilement soit suffisante pour que ce soit fluide */ }
 }
 
 .control {
@@ -73,18 +75,25 @@ button:hover {
     cursor: pointer;
 }
 
-/* Media Queries pour appareils mobiles uniquement */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
+    .roulette-container {
+        flex-direction: column;
+        align-items: center; /* Centrage des éléments en mode colonne */
+    }
+
     .roulette {
-        width: 100%;
-        margin-bottom: 10px;
+        width: 100%; /* Prend toute la largeur en mode une colonne */
+        margin-right: 0; /* Elimine la marge droite pour éviter des débordements */
+        margin-bottom: 20px; /* Conserve un espacement vertical entre les roulettes */
     }
 
     button {
-        width: 100%;
+        width: calc(100% - 20px); /* Assurez-vous que les boutons ne dépassent pas les roulettes */
     }
+}
 
-    #ideaOutput, #hookOutput, #frameworkOutput, #randomAdviceOutput {
-        width: 100%;
+@media only screen and (max-width: 600px) {
+    .roulette {
+        width: calc(100% - 40px); /* Pour les très petits écrans, réduisez un peu la largeur pour l'esthétique */
     }
 }

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Roulette</title>
+    <link rel="stylesheet" href="roulette.css">
+    <link rel="stylesheet" href="../common/common.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="site-title"><B>Boite à outils LinkedIn</B></div>
+            <nav>
+                <a href="../index.html">Accueil</a> |
+                <a href="roulette.html">Roulette LinkedIn</a>
+            </nav>
+        </div>
+        <h1>LinkedIn Roulette</h1>
+        <h2>La première app <U>✨0% IA✨</U> qui t’aide à dépasser ton syndrome de la page blanche</h2>
+    </header>
+
+    <div class="control">
+        <label for="toggleAnimation">Activer l'animation de roulette</label>
+        <input type="checkbox" id="toggleAnimation" checked>
+        <br><br><br>
+    </div>
+
+    <div class="roulette-container">
+        <div class="roulette">
+            <h2>Axe de réflexion</h2>
+            <button onclick="generateIdea()">Trouver une idée de post LinkedIn</button>
+            <p id="ideaOutput"></p>
+        </div>
+        <div class="roulette">
+            <h2>Structure d'accroche</h2>
+            <button onclick="generateHook()">Trouver une accroche</button>
+            <p id="hookOutput"></p>
+        </div>
+    </div>
+
+    <div class="roulette-container">
+        <div class="roulette">
+            <h2>Framework de post</h2>
+            <button onclick="generateFramework()">Trouver un framework</button>
+            <p id="frameworkOutput"></p>
+        </div>
+        <div class="roulette">
+            <h2>Conseil aléatoire</h2>
+            <button onclick="generateRandomAdvice()">Trouver un conseil</button>
+            <p id="randomAdviceOutput"></p>
+        </div>
+    </div>
+
+    <script src="roulette.js"></script>
+
+    <footer>
+        <p>Conçu avec 💙 par <a href="https://www.linkedin.com/in/curtiscoureau/" target="_blank">Curtis COUREAU</a></p>
+    </footer>
+</body>
+</html>

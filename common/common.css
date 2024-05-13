@@ -1,0 +1,43 @@
+header {
+    background-color: white; /* Couleur d'arrière-plan générale de l'en-tête */
+    color: black;
+    padding: 10px 20px; /* Ajustez selon vos préférences */
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0077b5; /* Couleur d'arrière-plan pour la barre de navigation */
+}
+
+.site-title {
+    color: white;
+    font-size: 20px; /* Taille de la police pour le titre du site */
+}
+
+nav {
+    margin: 0; /* Pas de marge pour la navigation */
+}
+
+nav a {
+    color: white; /* Couleur des liens */
+    text-decoration: none; /* Aucun soulignement */
+    padding: 5px 10px; /* Espacement autour des liens */
+    transition: background-color 0.3s; /* Transition pour l'effet de survol */
+}
+
+nav a:hover {
+    background-color: #005691; /* Couleur de fond lors du survol */
+    border-radius: 5px; /* Bords arrondis pour l'effet de survol */
+}
+
+h1, h2 {
+    color: black; /* Couleur du texte pour les titres */
+    text-align: center;
+}
+
+h1 {
+    margin-top: 10px; /* Espacement après la barre de navigation */
+}

@@ -46,17 +46,17 @@ async function animateAndDisplayResult(elementId, file) {
 }
 
 function generateIdea() {
-    animateAndDisplayResult('ideaOutput', 'ideas.json');
+    animateAndDisplayResult('ideaOutput', '../assets/data/ideas.json');
 }
 
 function generateHook() {
-    animateAndDisplayResult('hookOutput', 'hooks.json');
+    animateAndDisplayResult('hookOutput', '../assets/data/hooks.json');
 }
 
 function generateFramework() {
-    animateAndDisplayResult('frameworkOutput', 'frameworks.json');
+    animateAndDisplayResult('frameworkOutput', '../assets/data/frameworks.json');
 }
 
 function generateRandomAdvice() {
-    animateAndDisplayResult('randomAdviceOutput', 'randomAdvice.json');
+    animateAndDisplayResult('randomAdviceOutput', '../assets/data/randomAdvice.json');
 }

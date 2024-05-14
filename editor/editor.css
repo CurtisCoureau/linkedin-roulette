@@ -19,7 +19,7 @@ body {
 #zoom-buttons {
     position: absolute;
     top: 10px; /* Réduisez la distance du haut si nécessaire */
-    right: 30px; /* Réduisez la distance du bord droit pour ajuster la position */
+    left: 30px; /* Réduisez la distance du bord gauche pour ajuster la position */
 }
 
 #button-container {
@@ -29,7 +29,9 @@ body {
 }
 
 #copy-button {
-    margin-right: 10px;
+    position: absolute;
+    top: 10px; /* Réduisez la distance du haut si nécessaire */
+    right: 30px; /* Réduisez la distance du bord droit pour ajuster la position */
     /* Styles supplémentaires pour le bouton Copier si nécessaire */
 }
 
@@ -103,5 +105,5 @@ button:hover {
 
 #font-style-selector {
     padding: 5px 10px;
-    margin-left: 10px;
+    margin-left: 0px;
 }

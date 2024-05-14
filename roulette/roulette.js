@@ -45,6 +45,13 @@ async function animateAndDisplayResult(elementId, file) {
     }
 }
 
+function generateAll() {
+    animateAndDisplayResult('ideaOutput', '../assets/data/ideas.json');
+    animateAndDisplayResult('hookOutput', '../assets/data/hooks.json');
+    animateAndDisplayResult('frameworkOutput', '../assets/data/frameworks.json');
+    animateAndDisplayResult('randomAdviceOutput', '../assets/data/randomAdvice.json');
+}
+
 function generateIdea() {
     animateAndDisplayResult('ideaOutput', '../assets/data/ideas.json');
 }

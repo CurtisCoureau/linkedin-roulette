@@ -7,45 +7,52 @@
     <link rel="stylesheet" href="editor.css">
     <link rel="stylesheet" href="../common/common.css">
     <link rel="shortcut icon" type="image/x-icon" href="../assets/fusee.ico">
-
 </head>
 <body>
     <header></header>
-
     <h1>Editeur de posts</h1>
     <h2>Mettez en forme votre post ici !</h2>
-
-    <body>
-
-        
-        <div id="editor-container">
-            <div id="text-editor" contenteditable="true" placeholder="Écrivez votre post Linkedin ici..." oninput="updateCounters()"></div>
-            <div id="see-more-line" style="display: none;"></div> <!-- Ligne du "Voir plus" -->
-            <div id="button-container">
-                <div id="format-buttons">
-                    <button onclick="applyBold()">Gras</button>
-                    <button onclick="applyItalic()">Italique</button>
-                </div>
-                <button onclick="copyToClipboard()" id="copy-button">Copier le post</button>
+    <div id="editor-container">
+        <div id="text-editor" contenteditable="true" placeholder="Écrivez votre post Linkedin ici..." oninput="updateCounters()"></div>
+        <div id="see-more-line" style="display: none;"></div> <!-- Ligne du "Voir plus" -->
+        <div id="button-container">
+            <div id="format-buttons">
+                <button id="bold">Gras</button>
+                <button id="italic">Italique</button>
+                <button id="boldItalic">Gras + Italique</button> <br><br>
+                <button id="underline">Souligner</button>
+                <button id="strikethrough">Barrer</button>
+                <button id="removeFormat">Supprimer le format</button>
+                <select id="font-style-selector">
+                    <option value="normal">Normal Text</option>
+                    <option value="fullwidth">Fullwidth Text</option>
+                    <option value="fraktur">Fraktur</option>
+                    <option value="boldFraktur">Fraktur Bold</option>
+                    <option value="doubleStruck">Double Struck</option>
+                    <option value="script">Cursive Script</option>
+                    <option value="circled">Circled</option>
+                    <option value="squared">Squared</option>
+                    <option value="squaredNegative">Squared Inverse</option>
+                    <option value="inverted">Inverted</option>
+                    <option value="mirrored">Mirrored</option>
+                </select>
             </div>
-            <div id="zoom-buttons">
-                <button onclick="decreaseFontSize()">Zoom -</button>
-                <button onclick="increaseFontSize()">Zoom +</button>
-            </div>
-            
-            <div id="counters">
-                <p>Caractères: <span id="char-count">0</span>/3000</p>
-                <p>Mots: <span id="word-count">0</span></p>
-                <p>Emojis: <span id="emoji-count">0</span></p>
-                <p>Mentions @: <span id="mention-count">0</span></p>
-                <p>Hashtags #: <span id="hashtag-count">0</span></p>
-            </div>
+            <button id="copy">Copier</button>
         </div>
-        
-
+        <div id="zoom-buttons">
+            <button onclick="decreaseFontSize()">Zoom -</button>
+            <button onclick="increaseFontSize()">Zoom +</button>
+        </div>
+        <div id="counters">
+            <p>Caractères: <span id="char-count">0</span>/3000</p>
+            <p>Mots: <span id="word-count">0</span></p>
+            <p>Emojis: <span id="emoji-count">0</span></p>
+            <p>Mentions @: <span id="mention-count">0</span></p>
+            <p>Hashtags #: <span id="hashtag-count">0</span></p>
+        </div>
+    </div>
     <script src="editor.js"></script>
     <footer></footer>
-
     <script src="../common/common.js"></script>
 </body>
 </html>

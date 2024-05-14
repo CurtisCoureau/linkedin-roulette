@@ -54,9 +54,9 @@ button:hover {
     background-color: #005691;
 }
 
-
 #text-input {
-    width: calc(100% - 20px);    height: 200px;
+    width: calc(100% - 20px);    
+    height: 200px;
     padding: 10px; /* Padding intérieur */
     box-sizing: border-box; /* Inclut padding et border dans la largeur totale */
     border: 1px solid #ccc;
@@ -87,7 +87,6 @@ button:hover {
     margin-left: 10px;
 }
 
-
 #see-more-line {
     position: absolute;
     left: 30px;
@@ -98,7 +97,11 @@ button:hover {
     z-index: 10;
 }
 
-
 .text-danger {
     color: red;
+}
+
+#font-style-selector {
+    padding: 5px 10px;
+    margin-left: 10px;
 }

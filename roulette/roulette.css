@@ -37,6 +37,10 @@ body {
     border-radius: 8px;
 }
 
+
+
+
+
 button {
     background-color: #0077b5;
     color: white;
@@ -98,9 +102,9 @@ button:hover {
     }
 
     .roulette {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 20px;
+        width: 90%;
+        margin-right: 5%;
+        margin-left: 5%;
     }
 
     button {
@@ -108,11 +112,14 @@ button:hover {
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 480px) {
     .roulette {
-        width: calc(100% - 40px);
+        width: 90%;
+        margin-right: 5%;
+        margin-left: 5%;
     }
 }
+
 
 footer {
     padding: 20px;

@@ -29,7 +29,8 @@ body {
 .roulette {
     width: calc(50% - 20px);
     margin-bottom: 20px;
-    margin-right: 20px;
+    margin-right: 35px;
+    margin-left: 35px;
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     background-color: white;

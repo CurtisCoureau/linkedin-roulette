@@ -587,7 +587,14 @@ function updateCounters() {
     const text = textEditor.innerText;
 
     const charCount = text.length;
-    document.getElementById('char-count').textContent = charCount;
+    const charCountElement = document.getElementById('char-count');
+    charCountElement.textContent = charCount;
+
+    if (charCount > 3000) {
+        charCountElement.classList.add('text-danger');
+    } else {
+        charCountElement.classList.remove('text-danger');
+    }
 
     const wordCount = text.match(/\b\w+\b/g) ? text.match(/\b\w+\b/g).length : 0;
     document.getElementById('word-count').textContent = wordCount;
@@ -601,6 +608,7 @@ function updateCounters() {
     const hashtagCount = (text.match(/#\w+/g) || []).length;
     document.getElementById('hashtag-count').textContent = hashtagCount;
 }
+
 
 document.getElementById('text-editor').addEventListener('input', updateCounters);
 

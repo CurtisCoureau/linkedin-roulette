@@ -6,11 +6,11 @@ body {
 }
 
 #editor-container {
-    position: relative; /* Important pour le positionnement absolu des enfants */
+    position: relative;
     margin: 20px auto;
     width: 80%;
     background: white;
-    padding: 20px; /* Ajustez ceci si les boutons chevauchent le contenu */
+    padding: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 8px;
     overflow: hidden;
@@ -18,27 +18,32 @@ body {
 
 #zoom-buttons {
     position: absolute;
-    top: 10px; /* Réduisez la distance du haut si nécessaire */
-    left: 30px; /* Réduisez la distance du bord gauche pour ajuster la position */
-}
-
-#button-container {
-    display: flex;
-    justify-content: space-between; /* Place les éléments enfants aux extrémités du conteneur */
-    align-items: center; /* Alignement vertical des boutons au centre */
+    top: 10px;
+    left: 30px;
+    margin-bottom: 20px; /* Ajoute une marge sous les boutons de zoom */
 }
 
 #copy-button {
     position: absolute;
-    top: 10px; /* Réduisez la distance du haut si nécessaire */
-    right: 30px; /* Réduisez la distance du bord droit pour ajuster la position */
-    /* Styles supplémentaires pour le bouton Copier si nécessaire */
+    top: 10px;
+    right: 30px;
+    margin-bottom: 20px; /* Ajoute une marge sous le bouton de copie */
+}
+
+#button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 #format-buttons {
-    text-align: left; /* Aligner les boutons à gauche */
-    padding-bottom: 10px; /* Espacement sous les boutons si nécessaire */
-    margin-left : 12px; /* Réduisez la distance du bord gauche pour ajuster la position */
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    padding-bottom: 10px;
+    margin-left: 12px;
     margin-top: 8px;
 }
 
@@ -46,10 +51,11 @@ button {
     background-color: #0077b5;
     color: white;
     border: none;
-    padding: 5px 10px; /* Réduire le padding pour des boutons plus fins */
-    margin: 0; /* Aucun espace supplémentaire entre les boutons */
+    padding: 5px 10px;
+    margin: 5px;
     border-radius: 5px;
     cursor: pointer;
+    flex: 1;
 }
 
 button:hover {
@@ -57,14 +63,14 @@ button:hover {
 }
 
 #text-input {
-    width: calc(100% - 20px);    
+    width: calc(100% - 20px);
     height: 200px;
-    padding: 10px; /* Padding intérieur */
-    box-sizing: border-box; /* Inclut padding et border dans la largeur totale */
+    padding: 10px;
+    box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 18px;
-    overflow: auto; /* Au cas où le texte dépasse */
+    overflow: auto;
     overflow-y: auto;
     line-height: 20px;
     height: 200px;
@@ -72,20 +78,20 @@ button:hover {
 }
 
 #text-editor {
-    width: calc(100% - 20px); /* Ajuster en fonction du padding */
-    height: 200px; /* Hauteur initiale */
+    width: calc(100% - 20px);
+    height: 200px;
     padding: 10px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 5px;
-    overflow-y: auto; /* Permettre le défilement vertical si nécessaire */
+    overflow-y: auto;
     background-color: #fff;
     line-height: 1;
     font-size: 18px;
-    text-align: left; /* Aligner le texte à gauche */
-    resize: both; /* Permettre le redimensionnement horizontal et vertical */
-    overflow: auto; /* Ajoute une barre de défilement si le contenu dépasse la taille de l'élément */
-    margin-top: 20px;
+    text-align: left;
+    resize: both;
+    overflow: auto;
+    margin-top: 60px; /* Ajoute de l'espace pour éviter que les boutons de zoom et de copie ne débordent */
     margin-left: 10px;
 }
 
@@ -105,5 +111,60 @@ button:hover {
 
 #font-style-selector {
     padding: 5px 10px;
-    margin-left: 0px;
+    margin: 5px;
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    #editor-container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    #zoom-buttons {
+        top: 5px;
+        left: 10px;
+    }
+
+    #copy-button {
+        top: 5px;
+        right: 10px;
+    }
+
+    #format-buttons {
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    button, #font-style-selector {
+        padding: 5px;
+        margin: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    #editor-container {
+        width: 95%;
+        padding: 5px;
+    }
+
+    #zoom-buttons {
+        top: 5px;
+        left: 5px;
+    }
+
+    #copy-button {
+        top: 5px;
+        right: 5px;
+    }
+
+    #format-buttons {
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    button, #font-style-selector {
+        padding: 3px;
+        margin: 2px;
+    }
 }
